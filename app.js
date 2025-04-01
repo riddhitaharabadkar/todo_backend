@@ -81,7 +81,7 @@ app.post('/task', async (req, res, next) => {
             return;
         }
 
-        // INSERT INTO tasks("gym")
+        
         await sql`INSERT INTO tasks (name) VALUES (${req.body.newTask})`;
 
         res.status(201).json({
@@ -131,7 +131,7 @@ app.delete('/task/:index', async (req, res, next) => {
 app.listen(3000, () => {
     console.log('Server started at http://localhost:3000');
 });
-    // tasks delete elemt at 2 index
+    
     tasks.splice(req.params.index, 1);
     res.status(200).json({
         message: 'Task deleted successfully'
